@@ -7,6 +7,8 @@ MAINTAINER Jorge Morales <jmorales@redhat.com>
 ENV GRADLE_VERSION 2.6
 ENV MAVEN_VERSION 3.3.3
 # --enablerepo=centosplus
+RUN yum repolist
+
 RUN yum install -y  --enablerepo=rhel-6-server \
     tar unzip bc which lsof java-1.8.0-openjdk java-1.8.0-openjdk-devel && \
     yum clean all -y && \
