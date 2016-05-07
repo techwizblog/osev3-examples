@@ -7,21 +7,7 @@ MAINTAINER Jorge Morales <jmorales@redhat.com>
 ENV GRADLE_VERSION 2.6
 ENV MAVEN_VERSION 3.3.3
 # --enablerepo=centosplus
-RUN rpm -Uvh http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
-
-RUN rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
-
-RUN rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-
-RUN rpm -Uvh http://dl.atrpms.net/all/atrpms-repo-7-7.el7.x86_64.rpm
-
-RUN rpm -Uvh http://repo.webtatic.com/yum/el7/webtatic-release.rpm
-
-RUN yum repolist
-
-
-RUN yum install -y  --enablerepo=rhel-6-server \
-    tar unzip bc which lsof java-1.8.0-openjdk java-1.8.0-openjdk-devel && \
+RUN tar unzip bc which lsof java-1.8.0-openjdk java-1.8.0-openjdk-devel && \
     yum clean all -y && \
     (curl -0 http://www.eu.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | \
     tar -zx -C /usr/local) && \
